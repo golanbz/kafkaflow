@@ -27,14 +27,12 @@ hostBuilder.ConfigureServices(services =>
                         consumer => consumer
                             .WithConsumerConfig(new ConsumerConfig
                             {
-                                PartitionAssignmentStrategy = PartitionAssignmentStrategy.CooperativeSticky,
-                                AutoCommitIntervalMs = 100
-                            })
+                                PartitionAssignmentStrategy = PartitionAssignmentStrategy.CooperativeSticky})
                             .Topic(topicName)
                             .WithGroupId("print-console-handler")
                             .WithBufferSize(100)
                             .WithWorkersCount(3)
-                            .WithAutoCommitIntervalMs(10)
+                            .WithAutoCommitIntervalMs(100)
                             .WithAutoOffsetReset(AutoOffsetReset.Latest)
                             .AddMiddlewares(
                                 middlewares => middlewares
