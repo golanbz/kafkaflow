@@ -25,8 +25,8 @@ public class ConsumerConfigurationBuilderTests
     {
         // Arrange
         var consumerConfigurationBuilder = _fixture.Create<ConsumerConfigurationBuilder>();
-        consumerConfigurationBuilder.WithConsumerConfig(new ConsumerConfig()
-        {
+        consumerConfigurationBuilder.WithConsumerConfig(new ConsumerConfig
+            {
             PartitionAssignmentStrategy = PartitionAssignmentStrategy.CooperativeSticky,
             GroupId = "Test",
         }).WithAutoCommitIntervalMs(500)
@@ -47,7 +47,7 @@ public class ConsumerConfigurationBuilderTests
     {
         // Arrange
         var consumerConfigurationBuilder = new ConsumerConfigurationBuilder(Mock.Of<IDependencyConfigurator>());
-        consumerConfigurationBuilder.WithConsumerConfig(new ConsumerConfig()
+        consumerConfigurationBuilder.WithConsumerConfig(new ConsumerConfig
         {
             PartitionAssignmentStrategy = PartitionAssignmentStrategy.RoundRobin,
             GroupId = "Test"
